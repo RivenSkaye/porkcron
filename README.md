@@ -87,7 +87,7 @@ script in `/usr/local/bin` that reads the .env file and put corresponding entrie
 advance, it will trigger the first run immediately. Otherwise it'll tell you where to put the file so you can run it later.
 
 The corresponding crontabs will run weekly and on every reboot. It does assume the `@reboot` extension is available in your flavor
-of cron, as there is no equivalent specifiable time expression for it. The weekly job is defined as `0 0 * * 0` for compatibility.
+of cron, as there is no equivalent specifiable time expression for it. The weekly job is defined as `0 0 * * 1` for compatibility.
 
 ### Changing the run schedule
 

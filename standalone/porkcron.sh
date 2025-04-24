@@ -8,7 +8,7 @@ if [ -e .env ]
 then
   while IFS== read -r key value; do
     case $key in
-      ''|\#*) continue ;;
+      ''|\ \#*|\#*) continue ;;
     esac
     case $value in
       \ \#*|\#*) continue ;;

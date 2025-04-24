@@ -72,6 +72,23 @@ docker compose up
 
 This will create the `porkcron` container and download the certificate bundle into the `ssl` volume.
 
+### Standalone for use with cron
+
+If you're using FreeBSD or any other OS that doesn't come with systemd timers, but that does provide cron you can use the following:
+
+```sh
+cd standalone
+chmod +x install.sh
+./standalone/install.sh
+```
+
+It ensures the install script is executable if git didn't preserve the executable bit, before running it. It will install a wrapper
+script in `/usr/local/bin` that reads the .env file and put corresponding entries in `/etc/cron.d`. If you prepared a .env file in
+advance, it will trigger the first run immediately. Otherwise it'll tell you where to put the file so you can run it later.
+
+The corresponding crontabs will run weekly and on every reboot. It does assume the `@reboot` extension is available in your flavor
+of cron, as there is no equivalent specifiable time expression for it. The weekly job is defined as `0 0 * * 0` for compatibility.
+
 ### Changing the run schedule
 
 By default, the script is run once per week,

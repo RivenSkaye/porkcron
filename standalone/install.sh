@@ -10,8 +10,8 @@ cp ../porkcron.py /etc/porkcron/porkcron.py
 chmod +x /etc/porkcron/porkcron.py
 
 # Add a cron entry for it to run on reboot and weekly
-echo '0 0 * * 0 /usr/local/bin/porkcron' > /etc/cron.d/porkcron.weekly
-echo '@reboot /usr/local/bin/porkcron' >> /etc/cron.d/porkcron.reboot
+echo '0 0 * * 0 root /usr/local/bin/porkcron' > /etc/cron.d/porkcron.weekly
+echo '@reboot root /usr/local/bin/porkcron' >> /etc/cron.d/porkcron.reboot
 
 # Run once if the .env file exists
 if [ -e ../.env ]

@@ -7,6 +7,12 @@ cd /etc/porkcron
 if [ -e .env ]
 then
   while IFS== read -r key value; do
+    case $key in
+      ''|\#*) continue ;;
+    esac
+    case $value in
+      \ \#*|\#*) continue ;;
+    esac
     printf -v "$key" %s "$value"
     export "$key"
   done <.env

@@ -72,7 +72,7 @@ docker compose up
 
 This will create the `porkcron` container and download the certificate bundle into the `ssl` volume.
 
-### Standalone for use with cron
+### Using cron
 
 If you're using FreeBSD or any other OS that doesn't come with systemd timers, but that does provide cron you can use the following:
 

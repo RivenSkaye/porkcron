@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 # Move to /etc/porkcron
 cd /etc/porkcron

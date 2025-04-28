@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 # Install porkcron as a standalone executable script
 cd "$(dirname "$0")"

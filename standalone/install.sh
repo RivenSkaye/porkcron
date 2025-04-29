@@ -10,7 +10,16 @@ cp ../porkcron.py /etc/porkcron/porkcron.py
 chmod +x /etc/porkcron/porkcron.py
 
 # Add a cron entries for it to run on reboot and weekly
-cp ../crontabs/* /etc/cron.d/
+if [ -d /etc/cron.d ]
+then
+  cp ../crontabs/* /etc/cron.d/
+else
+  echo "Could not detect /etc/cron.d to set up the cronjobs. Please set these up manually."
+  echo "The two relevant lines to add are:"
+  cat ../crontabs/*
+  echo ""
+  echo "You might have to take out the username to run as depending on your flavor of cron."
+fi
 
 # Run once if the .env file exists
 if [ -e ../.env ]

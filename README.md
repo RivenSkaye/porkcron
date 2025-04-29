@@ -82,6 +82,12 @@ chmod +x install.sh
 ./standalone/install.sh
 ```
 
+> [!WARNING]
+> If you are using BusyBox cron or another "embedded" cron implementation, it might not read `/etc/cron.d` by default. In this case
+> you will have to adjust the install script, symlink the directory, or add the proper entries to your flavor of cron yourself.
+>
+> You can find an example approach to doing this in [The Dockerfile][10] which uses the Python overlay on the Alpine image.
+
 It ensures the install script is executable if git didn't preserve the executable bit, before running it. It will install a wrapper
 script in `/usr/local/bin` that reads the .env file and put corresponding entries in `/etc/cron.d`. If you prepared a .env file in
 advance, it will trigger the first run immediately. Otherwise it'll tell you where to put the file so you can run it later.
@@ -121,3 +127,4 @@ The rest is up to you, happy hacking!
 [7]: https://kb.porkbun.com/article/190-getting-started-with-the-porkbun-dns-api
 [8]: https://nginx.org
 [9]: https://ssl-config.mozilla.org
+[10]: https://github.com/tmzane/porkcron/blob/main/docker/Dockerfile

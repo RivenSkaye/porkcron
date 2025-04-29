@@ -99,7 +99,7 @@ of cron, as there is no equivalent specifiable time expression for it. The weekl
 
 By default, the script is run once per week,
 which is plenty since the certificate is valid for 3 months.
-You can change the schedule by modifying `systemd/porkcron.timer` (for systemd) or `docker/crontab` (for Docker).
+You can change the schedule by modifying `systemd/porkcron.timer` (for systemd) or `crontabs/porkcron.weekly` (for Docker and cron).
 
 ### Configuring a web server
 
